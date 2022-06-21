@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Dancing+Script&family=Indie+Flower&family=Lobster&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;  
+  text-align: center;
+}
+
+h1 {  
+  font: 900 3.5rem 'Carter One', cursive, italic;
+  color: #e64308;
+  text-shadow: 0 0 5px #fff;
+}
+
+.img-carrito {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #f46207;
+  margin-left: 5rem;
+  filter: invert(100%);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);    
+  }
+  100% { transform: rotate(360deg); }
+}
+
+.carrito {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #1E38E6;
+  color: #fff;
+  text-align: center;
+}
+
+.logo-carrito {
+  width: 5%;
+  height: 100%;
+  display: flex;     
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-carrito img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;  
+  border: solid 2px #0a12f1;
+  filter: invert(90%);
+}
+
+.tabla-carrito, .agregados {  
+  width: 100%;
+  height: 100%;  
+  display: flex;   
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-align: center;  
+}
+
+.tabla-carrito .encabezado,
+.tabla-carrito .contenido {    
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 1rem;  
+  font-weight: 900;
+  font-size: 1.5rem;      
+  color: #fff; 
+}
+
+.papelera button {
+  width: 8rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #22ff00;
+  color: #00020c;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+}
+
+.papelera button:hover {
+  background: #f11d0a;
+}
+
+.agregar button,
+.quitar button {
+  width: 3rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5dd0a;
+  border-radius: 20px;
+  color: #00020c;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+}
+
+.total {
+  border-top: solid 1px orange;
+  margin-top: 1rem;
+}
+
+.agregar button:hover,
+.quitar button:hover {
+  background: #ef5d08;
+}
+
+.carrito div {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 0.2rem;
+}
+
+.product {
+  width: 15rem;
+  height: 20rem;
+  border: solid 1px #272e31;
+  box-shadow: -2px -2px 0px #496970;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.product img {
+  width: 100%;
+  height: 50%;  
+}
+
+.product h2 {
+  font-size: 2rem;
+  font-weight: 900;
+  font-style: oblique;
+  margin-top: 1rem;
+  color: #f52f07;  
+}
+
+.product p {
+  font-size: 1.5rem;
+  font-weight: 900;
+  font-style: oblique;
+  margin-top: 1rem;
+  color: #5a1002;  
+}
+
+.product button {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f52f07;  
+  color: #00020c;
+  font-weight: 900;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  top: 2rem;
+}
+
+.product button:hover {
+  background: #32b506;
+}
+
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  color: #000;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.cuerpo {
+  width: 100%;
+  border: solid 1px red;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+footer {
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  color: #fff;
+  text-align: center;
+}

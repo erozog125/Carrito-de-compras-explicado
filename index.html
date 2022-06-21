@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="Carrito.png" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Carrito de compras</title>
+ </head>
+ <body>
+  <header>
+   <h1>Carrito de compras</h1>
+   <img class="img-carrito" src="Carrito.png" alt="Carrito de compras" />
+  </header>
+  <div class="carrito">
+   <div class="tabla-carrito">
+    <div class="encabezado">
+     <div class="nombre">Nombre</div>
+     <div class="cantidad">Cantidad</div>
+     <div class="quitar">Quitar</div>
+     <div class="agregar">Agregar</div>
+     <div class="precio">Precio</div>
+     <div class="papelera"><button id="limpiar">Limpiar</button></div>
+     <div class="logo-carrito">
+      <img src="Carrito.png" alt="Carrito de compras" />
+     </div>
+    </div>
+    <div class="agregados"></div>
+   </div>
+  </div>
+  <main></main>
+  <footer><p>&copy; 2020 - Carrito de compras</p></footer>
+  <script type="module" src="app.js"></script>
+  <script type="module" src="productos.js"></script>
+ </body>
+</html>
