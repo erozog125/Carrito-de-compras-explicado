@@ -2,7 +2,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
-  import {getFirestore, collection, getDocs} from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js"
+  import {getFirestore, collection, onSnapshot,updateDoc,doc, setDoc } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -19,7 +19,31 @@
 
   const db = getFirestore(app);
 
-  export const obtenerProductos = () => getDocs(collection(db,"carrito"));
+  export const obtenerProductos = (callback) => onSnapshot(collection(db,'carrito'), callback);
+
+  export const agregarACarrito = async (producto,id) => {
+
+    const {cantidad, imagen, nombre, precio, sku } = producto;
+
+    await setDoc(doc(db, "precompra",id), {cantidad, imagen, nombre, precio,sku});  
+}
+
+export const obtenerPrecompra = (callback) => onSnapshot(collection(db,'precompra'), callback);
+
+export const actualizarPrecompra = async (producto,id) => {
+
+    const {cantidad, imagen, nombre, precio, sku } = producto;          
+    await updateDoc(doc(db, "precompra",id), {cantidad, imagen, nombre, precio,sku});  
+}
+  
+
+  
+
+  
+  
+  
+
+  
 
 
 
