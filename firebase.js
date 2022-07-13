@@ -2,7 +2,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-app.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
-  import {getFirestore, collection, onSnapshot,updateDoc,doc, setDoc } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
+  import {getFirestore, collection, onSnapshot,updateDoc,doc,setDoc } from "https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore.js";
 
   // Your web app's Firebase configuration
   const firebaseConfig = {
@@ -30,11 +30,9 @@
 
 export const obtenerPrecompra = (callback) => onSnapshot(collection(db,'precompra'), callback);
 
-export const actualizarPrecompra = async (producto,id) => {
-
-    const {cantidad, imagen, nombre, precio, sku } = producto;          
-    await updateDoc(doc(db, "precompra",id), {cantidad, imagen, nombre, precio,sku});  
-}
+export const actualizarPrecompra = async (id,cantidad) =>{  
+  await updateDoc(doc(db,"precompra",id), {cantidad:cantidad});
+} 
   
 
   

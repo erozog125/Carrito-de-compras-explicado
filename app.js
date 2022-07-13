@@ -1,6 +1,5 @@
 import { obtenerProductos,agregarACarrito, obtenerPrecompra,actualizarPrecompra } from "./firebase.js";
 const contenedor = document.getElementById("contenedor-principal");
-const precompra = [];
 
 window.addEventListener("DOMContentLoaded", () => {
   contenedor.innerHTML = "";
@@ -32,30 +31,33 @@ const createCardProducts = (producto, id) => {
 
   btnAgregar.addEventListener("click", event => {    
     const id = event.target.id;
-    console.log("Id del elemento: "+id);
-    
+
     const imgProductoActual = event.target.parentNode.childNodes[0].src;
     const nombreProductoActual = event.target.parentNode.childNodes[1].textContent;
     const precioProductoActual = Number(event.target.parentNode.childNodes[2].textContent.split(' ')[1]);
-    let cantidadProductoActual = 0;
-    const productoActual = {sku:id, cantidad: cantidadProductoActual+1, imagen: imgProductoActual, nombre: nombreProductoActual, precio: precioProductoActual };
+    let cantidadProductoActual = 1;
+    const productoActual = {sku:id, cantidad: cantidadProductoActual, imagen: imgProductoActual, nombre: nombreProductoActual, precio: precioProductoActual };    
 
-    // 1. Recorrer los productos de precompra
-    // 2. Si el producto actual ya existe en precompra, sumar 1 a la cantidad
-    // 3. Si el producto actual no existe en precompra, agregarlo a precompra
-    // 4. Actualizar el carrito    
-    sumarACarrito(productoActual,id);    
-})};
+    obtenerPrecompra((querySnapshot) => {
+      const existe = querySnapshot.docs.some(doc => doc.id === id);
+      if (!existe) {
+        sumarACarrito(productoActual,id);
+      }else {        
+        actualizarCarrito(id,150);
+      }
+    })
     
+    
+});
+} 
 
 function sumarACarrito(producto,id) {
   agregarACarrito(producto,id);
   console.log('Agregado');
 }
 
-function actualizarCarrito(producto,id) {
-  // sumar uno a la cantidad
-  actualizarPrecompra(producto,id);
+function actualizarCarrito(id,cantidad) {  
+  actualizarPrecompra(id,cantidad);
   console.log('Actualizado');
 }
 
